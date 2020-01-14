@@ -10,9 +10,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "eslint": ">=6.8.0",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
+    "eslint": ">=6.8.0",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x"
   },
