@@ -1,3 +1,4 @@
+
 gzip on;
 gzip_comp_level 6;
 gzip_types text/css application/javascript;
@@ -32,6 +33,7 @@ server {
     add_header X-XSS-Protection "1; mode=block";
 
     sub_filter '$PROJECT_REF' '$PROJECT_REF';
+    sub_filter '$ENV' '$ENV';
     sub_filter '$APP_CONFIG' '$APP_CONFIG';
     sub_filter_once on;
   }

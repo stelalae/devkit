@@ -24,7 +24,11 @@
     "js-yaml": "3.13.1",
     "@types/lodash": "4.x",
     "lodash": "4.x",
-    "webpack-bundle-analyzer": "3.6.0"
+    "webpack-bundle-analyzer": "3.6.0",
+    "@types/fs-extra": "8.0.1",
+    "fs-extra": "8.1.0",
+    "@types/cross-spawn": "6.0.1",
+    "cross-spawn": "7.0.1"
   },
   "publishConfig": {
     "access": "public"

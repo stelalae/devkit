@@ -31,7 +31,7 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
       meta: {
         ...meta,
         "devkit:appName": state.appName,
-        "devkit:env": state.targetEnv,
+        "devkit:env": "$ENV",
         "devkit:config": "$APP_CONFIG",
         "devkit:version": "$PROJECT_REF",
       },
