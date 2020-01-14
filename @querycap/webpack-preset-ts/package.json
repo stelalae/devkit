@@ -1,0 +1,30 @@
+{
+  "name": "@querycap/webpack-preset-ts",
+  "version": "0.0.0",
+  "ts": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@types/webpack": "4.x",
+    "webpack": "4.x"
+  },
+  "devDependencies": {
+    "@types/webpack": "4.x",
+    "webpack": "4.x"
+  },
+  "dependencies": {
+    "@querycap/webpack-preset": "0.0.0",
+    "babel-loader": "8.0.6",
+    "worker-loader": "2.0.0",
+    "@types/terser-webpack-plugin": "2.2.0",
+    "terser-webpack-plugin": "2.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

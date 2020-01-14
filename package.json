@@ -1,0 +1,93 @@
+{
+  "name": "devkit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run prepare",
+    "bootstrap": "lerna bootstrap",
+    "fmt": "npx prettier --write @querycap/{,**/}{,**/}*.{ts,tsx,json,md}",
+    "test": "jest --coverage",
+    "build": "tsc && lerna exec --scope=@querycap/** -- rollup -c ../../rollup.config.js",
+    "prepare": "npm run bootstrap && npm test && npm run build"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.3",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "7.8.3",
+    "@babel/plugin-transform-react-jsx": "7.8.3",
+    "@babel/plugin-transform-runtime": "7.8.3",
+    "@babel/plugin-transform-typescript": "7.8.3",
+    "@babel/preset-env": "7.8.3",
+    "@babel/runtime": "7.8.3",
+    "@commitlint/cli": "8.3.4",
+    "@commitlint/config-conventional": "8.3.4",
+    "@types/jest": "24.0.25",
+    "@types/lodash": "4.14.149",
+    "@types/node": "13.1.6",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "acorn": "7.1.0",
+    "acorn-dynamic-import": "4.0.0",
+    "babel-jest": "24.9.0",
+    "babel-plugin-pure-calls-annotation": "0.2.2",
+    "babel-plugin-typescript-iife-enum": "0.2.1",
+    "eslint": "6.8.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "husky": "4.0.7",
+    "jest": "24.9.0",
+    "lerna": "3.20.2",
+    "lint-staged": "9.5.0",
+    "lodash": "4.17.15",
+    "prettier": "1.19.1",
+    "rollup": "1.29.0",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-dts": "1.2.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "typescript": "3.7.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --fix",
+      "git add"
+    ],
+    "*.{json}": [
+      "npx prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "tsx",
+      "ts",
+      "json",
+      "jsx",
+      "js"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "moduleNameMapper": {
+      "@querycap/(.*)": "<rootDir>/@querycap/$1/src"
+    },
+    "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && lerna bootstrap",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

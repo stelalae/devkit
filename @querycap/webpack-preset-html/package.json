@@ -1,0 +1,29 @@
+{
+  "name": "@querycap/webpack-preset-html",
+  "version": "0.0.0",
+  "ts": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@types/webpack": "4.x",
+    "webpack": "4.x"
+  },
+  "devDependencies": {
+    "@types/webpack": "4.x",
+    "webpack": "4.x"
+  },
+  "dependencies": {
+    "@querycap/webpack-preset": "0.0.0",
+    "html-webpack-plugin": "3.2.0",
+    "webpack-pwa-manifest": "4.1.1",
+    "offline-plugin": "5.0.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

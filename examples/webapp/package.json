@@ -1,0 +1,18 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "APP=demo webpack-browser-sync --config webpack.config.js --historyApiFallback --index=../index.html"
+  },
+  "devDependencies": {
+    "@querycap/babel-preset": "file://../../../@querycap/babel-preset",
+    "@querycap/webpack-preset": "file://../../../@querycap/webpack-preset",
+    "@querycap/webpack-preset-assets": "file://../../../@querycap/webpack-preset-assets",
+    "@querycap/webpack-preset-ts": "file://../../../@querycap/webpack-preset-ts",
+    "@querycap/webpack-preset-html": "file://../../../@querycap/webpack-preset-html",
+    "webpack": "4.41.5",
+    "webpack-browser-sync": "0.12.2",
+    "webpack-cli": "3.3.10"
+  }
+}

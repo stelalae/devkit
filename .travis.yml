@@ -1,0 +1,10 @@
+language: node_js
+
+node_js:
+  - "13"
+
+script:
+  - echo "."
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

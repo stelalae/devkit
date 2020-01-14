@@ -1,0 +1,22 @@
+{
+  "name": "@querycap/eslint-config-ts",
+  "version": "0.0.0",
+  "ts": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": ">=6.8.0",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

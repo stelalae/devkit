@@ -1,0 +1,10 @@
+lib/
+public/
+coverage/
+*.js
+.tmp/
+
+!webpack.config.js
+!babel.config.js
+!rollup.config.js
+!.eslintrc.js
