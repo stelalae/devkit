@@ -1,0 +1,5 @@
+APP: demo
+FULL_PATH: demo__test--demo
+APP_CONFIG: '{"SRV_TEST":"//demo.querycap.com"}'
+PROJECT_DESCRIPTION: 测试
+PROJECT_GROUP: test

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "APP=demo webpack-browser-sync --config webpack.config.js --historyApiFallback --index=../index.html"
+    "dev": "webpack-browser-sync --config webpack.config.js --historyApiFallback --index=../index.html"
   },
   "devDependencies": {
     "@querycap/babel-preset": "file://../../../@querycap/babel-preset",

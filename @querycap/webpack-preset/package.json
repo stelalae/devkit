@@ -16,9 +16,13 @@
   },
   "devDependencies": {
     "@types/webpack": "4.x",
-    "webpack": "4.x"
+    "webpack": "4.x",
+    "lodash": "4.x"
   },
   "dependencies": {
+    "globby": "11.0.0",
+    "js-yaml": "3.13.1",
+    "@types/js-yaml": "3.12.1",
     "webpack-bundle-analyzer": "3.6.0"
   },
   "publishConfig": {

@@ -80,7 +80,7 @@
       "<rootDir>"
     ],
     "moduleNameMapper": {
-      "@querycap/(.*)": "<rootDir>/@querycap/$1/src"
+      "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/src"
     },
     "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
   },
