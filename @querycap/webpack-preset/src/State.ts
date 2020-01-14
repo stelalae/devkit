@@ -27,7 +27,7 @@ type TEnvVarBuilder = (env: string, feature: string, appName: string) => string;
 export const createState = ({
   cwd = process.cwd(),
   appName = (process.env.APP || "").toLowerCase().split("--")[0],
-  appFeature = (process.env.PROJECT_FEATURE || "").toLowerCase().split("--")[1] || "",
+  appFeature = (process.env.APP || "").toLowerCase().split("--")[1] || "",
   targetEnv = (process.env.ENV || "").toLowerCase(),
   group = (process.env.PROJECT_GROUP || "").toLowerCase(),
   inDev = (process.env.NODE_ENV || "development").toLowerCase() === "development",
@@ -63,7 +63,7 @@ export const createState = ({
     throw new Error("need created one ore more apps under direction ./src-app");
   }
 
-  state.context = join(cwd, `src-app/${appName}`);
+  state.context = join(cwd, `src-app/${state.appName}`);
 
   resolveConfigFile(state);
 
