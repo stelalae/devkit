@@ -1,6 +1,6 @@
 {
   "name": "@querycap/babel-preset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -25,5 +25,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "d1592f7b00d1ca05eab8b14e4bbf31749a63792a"
 }
