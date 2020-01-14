@@ -46,8 +46,8 @@ export const createState = ({
     manifest,
   };
 
-  if (process.env.CI_COMMIT_TAG) {
-    const { appName, appFeature, targetEnv } = fromCommitTag(process.env.CI_COMMIT_TAG);
+  if (process.env.CI_COMMIT_REF_NAME) {
+    const { appName, appFeature, targetEnv } = fromCommitRefName(process.env.CI_COMMIT_REF_NAME);
     state.appName = appName;
     state.appFeature = appFeature;
     state.targetEnv = targetEnv;
@@ -223,7 +223,7 @@ export function generateFile(path: string, content: string) {
   console.log(`generate ${path}`);
 }
 
-export function fromCommitTag(commitTag = "") {
+export function fromCommitRefName(commitTag = "") {
   const rule = commitTag.replace(/^feat(ure)?\//, "");
 
   const [appAndFeature, targetEnv] = rule.split(".");
@@ -236,7 +236,7 @@ export function fromCommitTag(commitTag = "") {
   };
 }
 
-export function toCommitTag(state: TState) {
+export function toCommitRefName(state: TState) {
   return (
     `feat/${state.appName}` +
     `${state.appFeature ? `--${state.appFeature}` : ""}` +
@@ -254,26 +254,13 @@ export function toFullPath(state: TState) {
 }
 
 function run(sh: string, args: string[] = []) {
-  const cmd = spawn(sh, args, {
+  spawn.sync(sh, args, {
     stdio: "inherit",
-    detached: false,
     shell: true,
-  });
-
-  process.on("SIGINT", () => {
-    cmd.kill("SIGINT");
-  });
-
-  process.on("SIGTERM", () => {
-    cmd.kill("SIGTERM");
-  });
-
-  process.on("exit", () => {
-    cmd.kill();
   });
 }
 
 export function release(state: TState) {
-  run("git", ["tag", "-f", toCommitTag(state)]);
-  run("git", ["push", "-f", "origin", `refs/tags/${toCommitTag(state)}`]);
+  run("git", ["tag", "-f", toCommitRefName(state)]);
+  run("git", ["push", "-f", "origin", `refs/tags/${toCommitRefName(state)}`]);
 }

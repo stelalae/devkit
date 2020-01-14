@@ -1,10 +1,10 @@
 import path from "path";
-import { createState, fromCommitTag, initialProject } from "../index";
+import { createState, fromCommitRefName, initialProject } from "../index";
 
 describe("#State", () => {
   describe("fromCommitTag", () => {
     it("full", () => {
-      const state = fromCommitTag("feature/demo--xxx.test");
+      const state = fromCommitRefName("feature/demo--xxx.test");
 
       expect(state).toEqual({
         appName: "demo",
@@ -14,7 +14,7 @@ describe("#State", () => {
     });
 
     it("partial", () => {
-      const state = fromCommitTag("feature/demo");
+      const state = fromCommitRefName("feature/demo");
 
       expect(state).toEqual({
         appName: "demo",
