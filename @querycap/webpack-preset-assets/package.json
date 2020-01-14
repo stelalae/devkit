@@ -1,6 +1,6 @@
 {
   "name": "@querycap/webpack-preset-assets",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -18,7 +18,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap/webpack-preset": "^0.0.2",
+    "@querycap/webpack-preset": "^0.0.5",
     "css-loader": "3.4.1",
     "file-loader": "5.0.2",
     "html-loader": "0.5.5",
@@ -30,5 +30,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "d1592f7b00d1ca05eab8b14e4bbf31749a63792a"
+  "gitHead": "008065a0cbe6ec65b77b65c63662fc1c4a78b07c"
 }

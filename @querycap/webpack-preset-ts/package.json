@@ -1,6 +1,6 @@
 {
   "name": "@querycap/webpack-preset-ts",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -18,7 +18,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap/webpack-preset": "^0.0.2",
+    "@querycap/webpack-preset": "^0.0.5",
     "@types/terser-webpack-plugin": "2.2.0",
     "babel-loader": "8.0.6",
     "terser-webpack-plugin": "2.3.1",
@@ -27,5 +27,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "d1592f7b00d1ca05eab8b14e4bbf31749a63792a"
+  "gitHead": "008065a0cbe6ec65b77b65c63662fc1c4a78b07c"
 }
