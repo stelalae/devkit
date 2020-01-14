@@ -121,7 +121,7 @@ export function initialProject(state: TState) {
     join(state.cwd, "web-entrypoint.sh"),
     `#!/bin/sh
 
-envsubst '$PROJECT_REF $APP_CONFIG $ENV' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf
+envsubst '$PROJECT_VERSION $APP_CONFIG $ENV' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf
 nginx -g 'daemon off;'
 
 exec "$@"  
@@ -164,7 +164,7 @@ server {
     add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
 
-    sub_filter '$PROJECT_REF' '$PROJECT_REF';
+    sub_filter '$PROJECT_VERSION' '$PROJECT_VERSION';
     sub_filter '$ENV' '$ENV';
     sub_filter '$APP_CONFIG' '$APP_CONFIG';
     sub_filter_once on;
@@ -178,7 +178,7 @@ server {
       from: "nginx:alpine",
       env: {
         APP_CONFIG: "{}",
-        ENV: "",
+        ENV: "${ENV}",
       },
       add: {
         "./site.template": "/etc/nginx/conf.d/site.template",
@@ -209,18 +209,18 @@ server {
       ENV: state.targetEnv,
       FULL_PATH: toFullPath(state),
       APP_CONFIG: JSON.stringify(state.config || {}),
+
+      // for overwrite
       PROJECT_DESCRIPTION: state.manifest?.name,
       PROJECT_FEATURE: state.appFeature || "",
-      PROJECT_GROUP: state.group,
+      ...(state.group ? { PROJECT_GROUP: state.group } : {}),
     }),
   );
 }
 
 export function generateFile(path: string, content: string) {
   createFileSync(path);
-  writeFileSync(path, content, {
-    mode: 644,
-  });
+  writeFileSync(path, content);
   console.log(`generate ${path}`);
 }
 

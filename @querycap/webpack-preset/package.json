@@ -6,8 +6,7 @@
   "module": "lib/index.es.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib/",
-    "dockerfile/"
+    "lib/"
   ],
   "license": "MIT",
   "peerDependencies": {

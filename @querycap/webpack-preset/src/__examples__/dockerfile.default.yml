@@ -1,7 +1,7 @@
 from: 'nginx:alpine'
 env:
   APP_CONFIG: '{}'
-  ENV: ''
+  ENV: '${ENV}'
 add:
   ./site.template: /etc/nginx/conf.d/site.template
   ./web-entrypoint.sh: /usr/local/bin/web-entrypoint.sh
