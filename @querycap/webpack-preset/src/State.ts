@@ -185,7 +185,7 @@ server {
         "./web-entrypoint.sh": "/usr/local/bin/web-entrypoint.sh",
         "./public/${APP}": "/usr/share/nginx/html",
       },
-
+      run: "chmod +x /usr/local/bin/web-entrypoint.sh",
       entrypoint: ["web-entrypoint.sh"],
     }),
   );
@@ -210,6 +210,7 @@ server {
       FULL_PATH: toFullPath(state),
       APP_CONFIG: JSON.stringify(state.config || {}),
       PROJECT_DESCRIPTION: state.manifest?.name,
+      PROJECT_FEATURE: state.appFeature || "",
       PROJECT_GROUP: state.group,
     }),
   );

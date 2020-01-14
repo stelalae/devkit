@@ -6,5 +6,6 @@ add:
   ./site.template: /etc/nginx/conf.d/site.template
   ./web-entrypoint.sh: /usr/local/bin/web-entrypoint.sh
   './public/${APP}': /usr/share/nginx/html
+run: chmod +x /usr/local/bin/web-entrypoint.sh
 entrypoint:
   - web-entrypoint.sh
