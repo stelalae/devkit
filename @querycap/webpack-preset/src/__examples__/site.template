@@ -32,9 +32,9 @@ server {
     add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
 
-    sub_filter '$PROJECT_VERSION' '$PROJECT_VERSION';
-    sub_filter '$ENV' '$ENV';
-    sub_filter '$APP_CONFIG' '$APP_CONFIG';
+    sub_filter '__PROJECT_VERSION__' '$PROJECT_VERSION';
+    sub_filter '__ENV__' '$ENV';
+    sub_filter '__APP_CONFIG__' '$APP_CONFIG';
     sub_filter_once on;
   }
 }
