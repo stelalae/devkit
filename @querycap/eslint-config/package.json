@@ -1,5 +1,5 @@
 {
-  "name": "@querycap/eslint-config-ts",
+  "name": "@querycap/eslint-config",
   "version": "0.0.0",
   "ts": "src/index.ts",
   "main": "lib/index.js",
