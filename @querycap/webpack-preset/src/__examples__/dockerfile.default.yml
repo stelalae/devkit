@@ -1,6 +1,6 @@
 from: 'nginx:alpine'
 env:
-  APP_CONFIG: '{}'
+  APP_CONFIG: '${APP_CONFIG}'
   ENV: '${ENV}'
 add:
   ./site.template: /etc/nginx/conf.d/site.template

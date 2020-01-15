@@ -64,6 +64,16 @@ export = withPresetsBy({
 * 通过环境变量 `APP` 和 `ENV`，我们可以进行切换应用或者项目 * 
 如 `APP=app-one ENV=demo npm run dev`
 
+```
+如下文件会自动生成并覆盖
+
+.gitlab-ci.yml
+dockerfile.default.yml
+helmx.default.yml
+site.template
+web-entrypoint.sh
+```
+
 ```yaml
 # helmx.project.yml
 project:
