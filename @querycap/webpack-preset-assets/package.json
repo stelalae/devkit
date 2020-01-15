@@ -1,6 +1,6 @@
 {
   "name": "@querycap/webpack-preset-assets",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -18,7 +18,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap/webpack-preset": "^0.0.14",
+    "@querycap/webpack-preset": "^0.0.15",
     "css-loader": "3.4.1",
     "file-loader": "5.0.2",
     "html-loader": "0.5.5",

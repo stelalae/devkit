@@ -1,6 +1,6 @@
 {
   "name": "@querycap/generate-client",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -20,8 +20,8 @@
     "@morlay/ts-gen-definitions-from-json-schema": "1.2.0",
     "@types/fs-extra": "8.0.1",
     "@types/lodash": "4.x",
-    "fs-extra": "8.1.0",
     "axios": "0.19.x",
+    "fs-extra": "8.1.0",
     "lodash": "4.x"
   },
   "publishConfig": {
