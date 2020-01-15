@@ -1,6 +1,6 @@
 {
   "name": "@querycap/webpack-preset-ts",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -18,7 +18,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap/webpack-preset": "^0.0.5",
+    "@querycap/webpack-preset": "^0.0.9",
     "@types/terser-webpack-plugin": "2.2.0",
     "babel-loader": "8.0.6",
     "terser-webpack-plugin": "2.3.1",
