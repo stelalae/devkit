@@ -20,11 +20,12 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
 
   const enablePWA = isProd && existsSync(join(c.context!, "./logo.png"));
   const hasFavicon = existsSync(join(c.context!, "./favicon.ico"));
+  const hasIndexHTML = existsSync(join(c.context!, "./index.html"));
 
   c.plugins?.push(
     new HtmlWebpackPlugin({
-      favicon: hasFavicon ? "./favicon.ico" : "",
-      template: "./index.html",
+      favicon: hasFavicon ? "./favicon.ico" : undefined,
+      template: hasIndexHTML ? "./index.html" : undefined,
       filename: "../index.html",
       inject: true,
       showErrors: true,
