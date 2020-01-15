@@ -8,3 +8,5 @@ coverage/
 !babel.config.js
 !rollup.config.js
 !.eslintrc.js
+
+*.log
