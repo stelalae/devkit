@@ -1,6 +1,6 @@
 {
   "name": "@querycap/webpack-preset",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
