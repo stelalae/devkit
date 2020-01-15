@@ -1,0 +1,15 @@
+{
+  "name": "@querycap/config",
+  "version": "0.0.9",
+  "ts": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

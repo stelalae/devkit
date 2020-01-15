@@ -4,12 +4,14 @@ import globby from "globby";
 import { safeDump } from "js-yaml";
 import { keys, last, mapKeys, mapValues } from "lodash";
 import path, { join } from "path";
+import { stringify } from "querystring";
 
 export type TState = {
   cwd: string;
   context: string;
   appName: string;
   appFeature?: string;
+  version?: string;
   group?: string;
   targetEnv: string;
   inDev: boolean;
@@ -29,6 +31,7 @@ export const createState = ({
   appName = (process.env.APP || "").toLowerCase().split("--")[0],
   appFeature = (process.env.APP || "").toLowerCase().split("--")[1] || "",
   targetEnv = (process.env.ENV || "").toLowerCase(),
+  version = (process.env.PROJECT_VERSION || "").toLowerCase(),
   group = (process.env.PROJECT_GROUP || "").toLowerCase(),
   inDev = (process.env.NODE_ENV || "development").toLowerCase() === "development",
   config = JSON.parse(process.env.APP_CONFIG || "{}"),
@@ -40,6 +43,7 @@ export const createState = ({
     appName,
     appFeature,
     targetEnv,
+    version,
     group,
     inDev,
     config,
@@ -208,7 +212,9 @@ server {
       APP: state.appName,
       ENV: state.targetEnv,
       FULL_PATH: toFullPath(state),
-      APP_CONFIG: JSON.stringify(state.config || {}),
+      APP_CONFIG: stringify(state.config || {}, ",", "=", {
+        encodeURIComponent: (v) => v,
+      }),
 
       // for overwrite
       PROJECT_DESCRIPTION: state.manifest?.name,

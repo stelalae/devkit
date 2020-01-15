@@ -40,10 +40,6 @@ export const withPresetsBy = (stateOpts: Partial<TState> = {}) => (...presets: T
         ".js'": "'",
         "process.env": {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development"),
-
-          APP: JSON.stringify(state.appName),
-          // no defaults in prod to make sure pkg same results
-          APP_CONFIG: state.inDev ? JSON.stringify(state.config) : "{}",
         },
       }),
     ],

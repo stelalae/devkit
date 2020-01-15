@@ -1,6 +1,6 @@
 APP: demo
 ENV: demo
 FULL_PATH: demo--demo
-APP_CONFIG: '{"SRV_TEST":"//demo.querycap.com"}'
+APP_CONFIG: SRV_TEST=//demo.querycap.com
 PROJECT_DESCRIPTION: 测试
 PROJECT_FEATURE: ''
