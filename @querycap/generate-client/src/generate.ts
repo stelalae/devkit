@@ -107,7 +107,7 @@ export const generate = (clientID: string, openAPI: IOpenAPI, clientCreator = ""
     },
   });
 
-  return `/* eslint-disable @typescript-eslint/no-use-before-define */
+  return `/* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-unnecessary-type-assertion */
 
 ${writer.output()}
 `;
