@@ -7,7 +7,10 @@
     "paths": {
       "*": [
         "__types__/*",
-        "*/src",
+        "*"
+      ],
+      "@querycap/*": [
+        "@querycap/*/src",
         "*"
       ]
     },
