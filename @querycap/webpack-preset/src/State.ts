@@ -227,7 +227,7 @@ server {
 export function generateFile(path: string, content: string) {
   createFileSync(path);
   writeFileSync(path, content);
-  console.log(`generate ${path}`);
+  console.log(`generated ${path}`);
 }
 
 export function fromCommitRefName(commitTag = "") {
