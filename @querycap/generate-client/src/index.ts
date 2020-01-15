@@ -1,6 +1,6 @@
 import { TParameter } from "@morlay/ts-gen-client-from-openapi";
-import { generate } from "@querycap/generate-client/src/generate";
-import { patchOpenAPI } from "@querycap/generate-client/src/openapi-patch";
+import { generate } from "./generate";
+import { patchOpenAPI } from "./openapi-patch";
 import axios from "axios";
 import { createHash } from "crypto";
 import { writeFileSync } from "fs";

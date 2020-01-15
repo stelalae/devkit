@@ -8,6 +8,11 @@
   "files": [
     "lib/"
   ],
+  "babelPresetEnv": {
+    "targets": {
+      "node": "current"
+    }
+  },
   "license": "MIT",
   "dependencies": {
     "@morlay/ts-gen-client-from-openapi": "1.2.0",
@@ -16,9 +21,11 @@
     "@types/fs-extra": "8.0.1",
     "@types/lodash": "4.x",
     "fs-extra": "8.1.0",
+    "axios": "0.19.x",
     "lodash": "4.x"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "d7001a484cf7781111b86952e101e3f8fd014167"
 }

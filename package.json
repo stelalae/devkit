@@ -7,7 +7,7 @@
     "bootstrap": "lerna bootstrap",
     "fmt": "npx prettier --write @querycap/{,**/}{,**/}*.{ts,tsx,json,md}",
     "test": "jest --coverage",
-    "build": "tsc && lerna exec --scope=@querycap/** -- rollup -c ../../rollup.config.js",
+    "build": "tsc && lerna exec -- rollup -c ../../rollup.config.js",
     "prepare": "npm run bootstrap && npm test && npm run build"
   },
   "commitlint": {

@@ -13,7 +13,7 @@ const getPkgPaths = (from, nodeModules) => {
   return glob
     .sync("**/*.js", {
       absolute: true,
-      cwd,
+      cwd
     })
     .map((p) => path.relative(nodeModules, p).replace(/.js$/, ""));
 };
@@ -25,69 +25,69 @@ const external = [
   ...getPkgPaths("@babel/runtime", rootNodeModules),
   ...[...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})].reduce((results, pkgName) => {
     return [...results, pkgName, ...getPkgPaths(pkgName, rootNodeModules), ...getPkgPaths(pkgName, localNodeModules)];
-  }, []),
+  }, [])
 ];
 
 module.exports = !pkg.ts
   ? []
   : [
-      {
-        input: pkg.ts,
-        output: [
-          {
-            file: pkg.main,
-            format: "cjs",
-          },
-          {
-            file: pkg.module,
-            format: "es",
-          },
-        ],
-        external: external,
-        plugins: [
-          nodeResolve({
-            extensions: [".ts", ".tsx", ".js", ".jsx"],
-          }),
-          rollupBabel({
-            babelrc: false,
-            exclude: "node_modules/**",
-            runtimeHelpers: true,
-            extensions: [".ts", ".tsx", ".js", ".jsx"],
-            ...require("./babel.config"),
-            overrides: [
-              {
-                presets: [
-                  [
-                    "@babel/preset-env",
-                    {
-                      targets: {
-                        chrome: 50,
-                        ie: 11,
-                        esmodules: true,
-                      },
-                    },
-                  ],
-                ],
-              },
-            ],
-          }),
-        ],
-      },
-      {
-        input: path.join(
-          __dirname,
-          process
-            .cwd()
-            .replace(__dirname, "")
-            .replace("@querycap", ".tmp/@querycap"),
-          "src/index.d.ts",
-        ),
-        output: [
-          {
-            file: pkg.types,
-            format: "es",
-          },
-        ],
-        plugins: [dts()],
-      },
-    ];
+    {
+      input: pkg.ts,
+      output: [
+        {
+          file: pkg.main,
+          format: "cjs"
+        },
+        {
+          file: pkg.module,
+          format: "es"
+        }
+      ],
+      external: external,
+      plugins: [
+        nodeResolve({
+          extensions: [".ts", ".tsx", ".js", ".jsx"]
+        }),
+        rollupBabel({
+          babelrc: false,
+          exclude: "node_modules/**",
+          runtimeHelpers: true,
+          extensions: [".ts", ".tsx", ".js", ".jsx"],
+          ...require("./babel.config"),
+          overrides: [
+            {
+              presets: [
+                [
+                  "@babel/preset-env",
+                  pkg.babelPresetEnv || {
+                    targets: {
+                      chrome: 50,
+                      ie: 11,
+                      esmodules: true
+                    }
+                  }
+                ]
+              ]
+            }
+          ]
+        })
+      ]
+    },
+    {
+      input: path.join(
+        __dirname,
+        process
+          .cwd()
+          .replace(__dirname, "")
+          .replace("@querycap", ".tmp/@querycap"),
+        "src/index.d.ts"
+      ),
+      output: [
+        {
+          file: pkg.types,
+          format: "es"
+        }
+      ],
+      plugins: [dts()]
+    }
+  ];
