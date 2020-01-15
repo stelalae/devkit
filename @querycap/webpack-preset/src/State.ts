@@ -181,7 +181,7 @@ server {
     safeDump({
       from: "nginx:alpine",
       env: {
-        APP_CONFIG: "{}",
+        APP_CONFIG: "${APP_CONFIG}",
         ENV: "${ENV}",
       },
       add: {

@@ -80,11 +80,11 @@ import { confLoader } from "@querycap/config";
 // 部署环境列表，会处理为全小写
 // 默认使用 第一个
 export enum ENVS {
-  STAGING,
-  TEST,
-  DEMO,
-  ONLINE,
-  LOCAL,
+  STAGING = "STAGING",
+  TEST = "TEST",
+  DEMO = "DEMO",
+  ONLINE = "ONLINE",
+  LOCAL = "LOCAL",
 }
 
 export const APP_MANIFEST = {
