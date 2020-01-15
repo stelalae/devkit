@@ -5,5 +5,10 @@
   ],
   "npmClientArgs": [
     "--no-lockfile"
+  ],
+  "ignoreChanges": [
+    "**/__fixtures__/**",
+    "**/__tests__/**",
+    "**/*.md"
   ]
 }
