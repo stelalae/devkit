@@ -31,7 +31,7 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
   c.plugins?.push(
     new HtmlWebpackPlugin({
       favicon: hasFavicon ? "./favicon.ico" : undefined,
-      template: hasIndexHTML ? "./index.html" : undefined,
+      template: hasIndexHTML ? "./index.html" : join(__dirname, "../index-default.html"),
       filename: "../index.html",
       inject: true,
       showErrors: true,

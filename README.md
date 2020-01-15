@@ -47,6 +47,23 @@ export = withPresetsBy({
 );
 ```
 
+```json5
+// package.json 
+// 对应的 scripts 需要包含
+
+{
+  "scripts": {
+    "pkg": "NODE_ENV=production npm run build",
+    "build": "webpack --config webpack.config.ts",
+    "dev": "webpack-browser-sync --config webpack.config.ts --historyApiFallback --index=../index.html",
+    "r": "TO_RELEASE=1 ts-node ./webpack.config.ts"
+  }
+}
+```
+
+* 通过环境变量 `APP` 和 `ENV`，我们可以进行切换应用或者项目 * 
+如 `APP=app-one ENV=demo npm run dev`
+
 ```yaml
 # helmx.project.yml
 project:
@@ -60,7 +77,8 @@ project:
 // src-app/<APP_NAME>/config.ts
 import { confLoader } from "@querycap/config";
 
-// 部署环境列表，最后会处理为小写
+// 部署环境列表，会处理为全小写
+// 默认使用 第一个
 export enum ENVS {
   STAGING,
   TEST,
