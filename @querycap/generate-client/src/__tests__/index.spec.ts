@@ -1,10 +1,19 @@
 import { join } from "path";
-import { generateClient } from "..";
+import { generateClient, generateClientFromConfig } from "..";
 
 test("generate-client", async () => {
-  await generateClient("idp", "https://api.demo.querycap.com/idp", {
+  const opt = {
     cwd: join(__dirname, "./.tmp"),
     clientCreator: "../../../request.createRequest",
     force: true,
-  });
+  };
+
+  await generateClient("idp", "https://api.demo.querycap.com/idp", opt);
+
+  await generateClientFromConfig(
+    {
+      SRV_IDP: "//api.demo.querycap.com",
+    },
+    opt,
+  );
 });

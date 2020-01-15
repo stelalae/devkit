@@ -5,7 +5,7 @@ import axios from "axios";
 import { createHash } from "crypto";
 import { writeFileSync } from "fs";
 import { createFileSync, readFileSync } from "fs-extra";
-import { toLower } from "lodash";
+import { pickBy, startsWith, toLower } from "lodash";
 import path from "path";
 
 export const prefixProtocol = (uri: string) => (uri.startsWith("//") ? `http:${uri}` : uri);
@@ -20,6 +20,14 @@ export const defaultFilterParameter = (parameter: TParameter): boolean => {
   return true;
 };
 
+export interface GenOpts {
+  cwd: string;
+  ignorePaths: string[];
+  filterParameter: (parameter: TParameter) => boolean;
+  clientCreator: string;
+  force: boolean;
+}
+
 export const generateClient = async (
   clientID: string,
   uri: string,
@@ -29,13 +37,7 @@ export const generateClient = async (
     filterParameter = defaultFilterParameter,
     ignorePaths,
     force,
-  }: Partial<{
-    cwd: string;
-    ignorePaths: string[];
-    filterParameter: (parameter: TParameter) => boolean;
-    clientCreator: string;
-    force: boolean;
-  }>,
+  }: Partial<GenOpts>,
 ) => {
   try {
     console.log(`generating clients if needed from ${uri}`);
@@ -64,6 +66,26 @@ export const generateClient = async (
     }
   } catch (e) {
     console.log(`generate client failed for service ${clientID}`, e);
+  }
+};
+
+export const generateClientFromConfig = async (config: { [key: string]: string }, opts: Partial<GenOpts>) => {
+  const services = pickBy(config, (_, k) => startsWith(k, "SRV_"));
+
+  for (const serviceName in services) {
+    if (services[serviceName]) {
+      try {
+        const clientID = serviceName
+          .replace("SRV_", "")
+          .toLowerCase()
+          .replace(/_/g, "-");
+        const uri = prefixProtocol(services[serviceName] + "/" + clientID);
+
+        await generateClient(clientID, uri, opts);
+      } catch (e) {
+        console.log(e);
+      }
+    }
   }
 };
 
