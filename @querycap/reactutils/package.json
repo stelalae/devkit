@@ -1,6 +1,6 @@
 {
   "name": "@querycap/reactutils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -10,8 +10,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.x",
-    "lodash": "4.x"
+    "lodash": "4.x",
+    "react": "16.x"
   },
   "publishConfig": {
     "access": "public"
