@@ -1,4 +1,4 @@
-import { Actor } from "@reactorx/core";
+import { Actor, IEpic } from "@reactorx/core";
 
 import {
   createRequestActor as createRequestActorOrigin,
@@ -21,7 +21,7 @@ export function createRequestActor<TReq, TResBody>(name: string, requestOptsFrom
 
 export { AxiosRequestConfig };
 
-export const createRequestEpic = (options: AxiosRequestConfig, ...interceptors: TRequestInterceptor[]) => {
+export const createRequestEpic = (options: AxiosRequestConfig, ...interceptors: TRequestInterceptor[]): IEpic => {
   return createRequestEpicOrigin(options, errorPatch, ...interceptors);
 };
 

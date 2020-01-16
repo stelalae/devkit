@@ -11,12 +11,12 @@ TypeScript 和 Webpack 开发 Web App
 ```
 src-app/
     app-one/
-        index.ts
+        index.tsx
         config.ts
         index.html  # 可选
         icon.png    # 和 config 中的 APP_MANIFEST 共同触发构建为 PWA
     app-two/
-        index.ts
+        index.tsx
         config.ts     
 helmx.project.yml
 webpack.config.ts

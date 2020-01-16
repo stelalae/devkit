@@ -6,5 +6,8 @@ module.exports = {
     "react": {
       "version": "detect"
     }
+  },
+  "rules": {
+    "@typescript-eslint/ban-ts-ignore": "off"
   }
 };

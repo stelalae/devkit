@@ -1,0 +1,27 @@
+{
+  "name": "@querycap/access",
+  "version": "0.0.0",
+  "ts": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "16.x",
+    "rxjs": "6.x",
+    "lodash": "4.x"
+  },
+  "dependencies": {
+    "@querycap/request": "0.0.0",
+    "@reactorx/core": "0.18.0",
+    "@reactorx/request": "0.18.0",
+    "@reactorx/router": "0.18.0",
+    "public-encrypt": "4.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
