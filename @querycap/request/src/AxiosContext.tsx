@@ -1,9 +1,15 @@
 import { composeEpics, epicOn } from "@reactorx/core";
-import { paramsSerializer, transformRequest, TRequestInterceptor } from "@reactorx/request";
+import {
+  createRequestEpicFromAxiosInstance,
+  paramsSerializer,
+  setDefaultContentType,
+  transformRequest,
+  TRequestInterceptor,
+} from "@reactorx/request";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Dictionary, forEach } from "lodash";
 import React, { createContext, ReactNode, useContext, useMemo } from "react";
-import { createRequestEpic, RequestActor } from "./RequestActor";
+import { RequestActor } from "./RequestActor";
 import { urlComplete } from "./utils";
 
 const AxiosContext = createContext<{ client?: AxiosInstance }>({});
@@ -59,6 +65,8 @@ export const AxiosProvider = ({
       c["getUri"] = getUri.bind(c);
     }
 
+    c.interceptors.request.use(setDefaultContentType);
+
     forEach(interceptors, (interceptor) => {
       interceptor(c.interceptors.request, c.interceptors.response);
     });
@@ -68,7 +76,7 @@ export const AxiosProvider = ({
 
   return (
     <AxiosContext.Provider value={{ client }}>
-      {epicOn(composeEpics(createRequestEpic(opts, ...interceptors)))}
+      {epicOn(composeEpics(createRequestEpicFromAxiosInstance(client)))}
       {children}
     </AxiosContext.Provider>
   );

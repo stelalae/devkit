@@ -12,6 +12,9 @@ export const protocolPrefix = (url = "") => {
 };
 
 export const urlComplete = (baseURLs: Dictionary<string>) => (url = "/") => {
+  if (url.startsWith("http:") || url.startsWith("https:")) {
+    return url;
+  }
   const firstPart = url.split("/")[1];
   return `${protocolPrefix(baseURLs[firstPart])}${url}`;
 };
