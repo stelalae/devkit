@@ -1,5 +1,5 @@
 {
-  "name": "@querycap/request",
+  "name": "@querycap/reactutils",
   "version": "0.0.0",
   "ts": "src/index.ts",
   "main": "lib/index.js",
@@ -11,12 +11,7 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "16.x",
-    "rxjs": "6.x",
-    "lodash": "4.x",
-    "axios": "0.19.x",
-    "@reactorx/core": "0.18.x",
-    "@reactorx/request": "0.18.x",
-    "uuid": "3.x"
+    "lodash": "4.x"
   },
   "publishConfig": {
     "access": "public"

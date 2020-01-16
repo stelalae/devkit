@@ -8,10 +8,9 @@ import {
   TRequestInterceptor,
 } from "@reactorx/request";
 import { AxiosRequestConfig } from "axios";
-import { assign, map } from "lodash";
+import { map } from "lodash";
 import { merge as observableMerge, Observable } from "rxjs";
 import { filter as rxFilter, ignoreElements as rxIgnoreElements, tap as rxTap } from "rxjs/operators";
-import uuid from "uuid";
 import { errorPatch, IStatusError } from "./StatusError";
 
 export class RequestActor<TReq = any, TResBody = any> extends RequestActorOrigin<TReq, TResBody, IStatusError> {}
@@ -33,8 +32,4 @@ export function tapWhen(next: () => void, ...actors: RequestActor[]) {
       rxIgnoreElements(),
     );
   };
-}
-
-export function uniqArg<T>(arg: T): T {
-  return assign(arg || {}, { _id: uuid() }) as any;
 }

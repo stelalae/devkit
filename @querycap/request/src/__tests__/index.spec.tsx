@@ -1,9 +1,8 @@
 import { Store, StoreProvider } from "@reactorx/core";
 import { StatusOK } from "@reactorx/request";
+import { act, render } from "@testing-library/react";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import React from "react";
-import { render } from "react-dom";
-import { act } from "react-dom/test-utils";
 import { A, AxiosProvider, baseURLsFromConfig, createRequestActor, useTempDataOfRequest } from "..";
 
 const getEmojis = createRequestActor<void, { [k: string]: string }>("test.emojis", () => ({
@@ -11,7 +10,7 @@ const getEmojis = createRequestActor<void, { [k: string]: string }>("test.emojis
   url: "/test/emojis",
 }));
 
-describe("full flow", () => {
+describe("#requests", () => {
   const mock = (config: AxiosRequestConfig): Promise<AxiosResponse> => {
     return new Promise<AxiosResponse>((resolve) => {
       console.log(config.url);
@@ -52,25 +51,22 @@ describe("full flow", () => {
             adapter: mock,
           }}>
           <Emojis />
+          <Emojis />
+          <Emojis />
+          <Emojis />
         </AxiosProvider>
       </StoreProvider>
     );
 
-    const $root = document.createElement("div");
+    const node = render(root);
 
-    act(() => {
-      render(root, $root);
-    });
+    await act(sleep(100));
 
-    await act(async () => {
-      await sleep(100);
-    });
-
-    expect($root.innerHTML).toContain("100");
-    expect($root.innerHTML).toContain("http://api.github.com/test/emojis");
+    expect(node.container.innerHTML).toContain("100");
+    expect(node.container.innerHTML).toContain("http://api.github.com/test/emojis");
   });
 });
 
 function sleep(period: number) {
-  return new Promise((resolve) => setTimeout(resolve, period));
+  return async () => await new Promise<void>((resolve) => setTimeout(resolve, period));
 }

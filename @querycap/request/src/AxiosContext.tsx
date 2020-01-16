@@ -1,10 +1,5 @@
 import { composeEpics, epicOn } from "@reactorx/core";
-import {
-  createCombineDuplicatedRequestEpic,
-  paramsSerializer,
-  transformRequest,
-  TRequestInterceptor,
-} from "@reactorx/request";
+import { paramsSerializer, transformRequest, TRequestInterceptor } from "@reactorx/request";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Dictionary, forEach } from "lodash";
 import React, { createContext, ReactNode, useContext, useMemo } from "react";
@@ -73,7 +68,7 @@ export const AxiosProvider = ({
 
   return (
     <AxiosContext.Provider value={{ client }}>
-      {epicOn(composeEpics(createCombineDuplicatedRequestEpic(), createRequestEpic(opts, ...interceptors)))}
+      {epicOn(composeEpics(createRequestEpic(opts, ...interceptors)))}
       {children}
     </AxiosContext.Provider>
   );
