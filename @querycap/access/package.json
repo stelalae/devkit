@@ -1,6 +1,6 @@
 {
   "name": "@querycap/access",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
