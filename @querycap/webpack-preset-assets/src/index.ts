@@ -28,7 +28,7 @@ export const withAssetsPreset = () => (c: Configuration, _2: TState) => {
     {
       // xxx.glsl
       test: /\.(glsl|frag|vert)$/,
-      use: [require.resolve("transform-loader") + "?glslify"],
+      use: [require.resolve("glsl-shader-loader")],
     },
     {
       // xxx.svg
