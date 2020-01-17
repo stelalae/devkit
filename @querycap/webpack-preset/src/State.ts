@@ -253,7 +253,7 @@ export function toCommitRefName(state: TState) {
   return (
     `feat/${state.appName}` +
     `${state.appFeature ? `--${state.appFeature}` : ""}` +
-    `${state.targetEnv && state.targetEnv !== "default" ? `.${state.targetEnv}` : ""}`
+    `${state.targetEnv && state.targetEnv !== "default" && state.targetEnv !== "demo" ? `.${state.targetEnv}` : ""}`
   );
 }
 
@@ -262,7 +262,7 @@ export function toFullPath(state: TState) {
     `${state.appName}` +
     `${state.appFeature ? `--${state.appFeature}` : ""}` +
     `${state.group ? `__${state.group}` : ""}` +
-    `${state.targetEnv && state.targetEnv !== "default" ? `--${state.targetEnv}` : ""}`
+    `${state.targetEnv && state.targetEnv !== "default" && state.targetEnv !== "demo" ? `--${state.targetEnv}` : ""}`
   );
 }
 
