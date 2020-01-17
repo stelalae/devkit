@@ -1,6 +1,7 @@
 import { displayPermissions, ShouldEnterResolver, TShouldRender, useAccessControl } from "@querycap/access";
-import { Dictionary, forEach, some } from "lodash";
-import React, { Children, cloneElement, lazy, ReactNode, Suspense, useMemo } from "react";
+import { generatePath, useRouter } from "@reactorx/router";
+import { Dictionary, forEach, reduce, some } from "lodash";
+import React, { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
 import { RouteTree } from "./RouteTree";
 
 function resolveShouldRender(route: RouteTree): Promise<TShouldRender> {
@@ -106,3 +107,50 @@ export function RBACShouldEnter({ children, route }: { children: ReactNode; rout
     </Suspense>
   );
 }
+
+export const indexAutoRedirectByRBAC = () => {
+  const AutoRedirectByRBAC = ({ route }: { route: RouteTree }) => {
+    const { history, match } = useRouter();
+    const { permissions, attrs } = useAccessControl();
+
+    useEffect(() => {
+      if (!route.parent) {
+        return;
+      }
+
+      reduce(
+        route.parent.routes,
+        (p, subRoute) => {
+          return p.then((prev) => {
+            // 处理串行
+            if (prev.shouldRender) {
+              return prev;
+            }
+
+            // 辅助类，redirect 等跳过
+            if (subRoute.Component && (subRoute.Component as any).assistant) {
+              return prev;
+            }
+
+            return resolveShouldRender(subRoute).then((shouldRender: TShouldRender) => ({
+              path: generatePath(subRoute.path, match.params),
+              shouldRender: shouldRender(permissions || {}, attrs || ({} as any)),
+            }));
+          });
+        },
+        Promise.resolve({ path: "", shouldRender: false }),
+      ).then(({ path }) => {
+        if (path) {
+          console.log(`automate navigate to ${path}`);
+          history.replace(path);
+        }
+      });
+    }, []);
+
+    return null;
+  };
+
+  AutoRedirectByRBAC.assistant = true;
+
+  return RouteTree.index().withComp(AutoRedirectByRBAC);
+};
