@@ -21,14 +21,15 @@
     "@querycap/webpack-preset": "^0.0.15",
     "css-loader": "3.4.1",
     "file-loader": "5.0.2",
+    "glslify": "^7.0.0",
     "html-loader": "0.5.5",
     "markdownit-loader": "2.0.0",
     "raw-loader": "4.0.0",
     "style-loader": "1.1.2",
+    "transform-loader": "0.2.4",
     "url-loader": "3.0.0"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "d7001a484cf7781111b86952e101e3f8fd014167"
+  }
 }
