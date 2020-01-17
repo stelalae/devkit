@@ -7,7 +7,7 @@
     "bootstrap": "lerna bootstrap",
     "fmt": "npx prettier --write @querycap/{,**/}{,**/}*.{ts,tsx,json,md}",
     "test": "jest --coverage",
-    "build": "tsc && lerna exec -- rollup -c ../../rollup.config.js",
+    "build": "tsc --incremental --diagnostics && lerna exec -- ts-node ../../rollup.config.ts",
     "prepare": "npm run bootstrap && npm test && npm run build"
   },
   "commitlint": {
@@ -17,13 +17,6 @@
   },
   "devDependencies": {
     "@babel/core": "7.8.3",
-    "@babel/plugin-proposal-class-properties": "7.8.3",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "7.8.3",
-    "@babel/plugin-proposal-optional-chaining": "7.8.3",
-    "@babel/plugin-transform-react-jsx": "7.8.3",
-    "@babel/plugin-transform-runtime": "7.8.3",
-    "@babel/plugin-transform-typescript": "7.8.3",
     "@babel/preset-env": "7.8.3",
     "@babel/runtime": "7.8.3",
     "@commitlint/cli": "8.3.4",
@@ -44,8 +37,7 @@
     "acorn-dynamic-import": "4.0.x",
     "axios": "0.19.x",
     "babel-jest": "24.9.x",
-    "babel-plugin-pure-calls-annotation": "0.2.x",
-    "babel-plugin-typescript-iife-enum": "0.2.x",
+    "chalk": "3.0.0",
     "date-fns": "2.9.0",
     "eslint": "6.8.x",
     "eslint-plugin-react": "7.x",
@@ -66,6 +58,7 @@
     "rollup-plugin-dts": "1.2.0",
     "rollup-plugin-node-resolve": "5.2.0",
     "rxjs": "6.5.4",
+    "ts-node": "8.6.2",
     "typescript": "3.7.4",
     "uuid": "3.3.3"
   },

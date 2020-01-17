@@ -4,9 +4,7 @@ coverage/
 *.js
 .tmp/
 
-!webpack.config.js
-!babel.config.js
-!rollup.config.js
+!*.config.js
 !.eslintrc.js
 
 *.log

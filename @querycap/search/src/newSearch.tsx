@@ -1,12 +1,12 @@
-import { Dictionary, isEqual, isUndefined, mapKeys, omit, omitBy, pick, pickBy, snakeCase, startsWith } from "lodash";
-import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
-import React, { ReactNode, useEffect, useMemo } from "react";
+import { RequestActor } from "@querycap/request";
 import { useObservableEffect, useSelector } from "@reactorx/core";
 import { useRequest } from "@reactorx/request";
-import { IPager, ISearchState, SearchContext, useSearch, useSearchContext } from "./SearchContext";
+import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
+import { Dictionary, isEqual, isUndefined, mapKeys, omit, omitBy, pick, pickBy, snakeCase, startsWith } from "lodash";
+import React, { ReactNode, useEffect, useMemo } from "react";
 import { Observable } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";
-import { RequestActor } from "@querycap/request";
+import { IPager, ISearchState, SearchContextProvider, useSearch, useSearchContext } from "./SearchContext";
 
 export function useNewSearch<TFilters extends Dictionary<any>, T>(
   name: string,
@@ -32,11 +32,11 @@ export function useNewSearch<TFilters extends Dictionary<any>, T>(
   const Search = useMemo(() => {
     return function Search({ children }: { children: ReactNode }) {
       return (
-        <SearchContext.Provider value={{ search: ctx }} key={name}>
+        <SearchContextProvider value={{ search: ctx }} key={name}>
           <SearchInit />
           {syncFromURL && <SyncToURL key={name} name={name} />}
           {children}
-        </SearchContext.Provider>
+        </SearchContextProvider>
       );
     };
   }, [ctx]);

@@ -1,7 +1,7 @@
 import { Actor, useStore, Volume } from "@reactorx/core";
 import { parseSearchString } from "@reactorx/router";
 import { Dictionary, mapKeys, omit, pick, pickBy, split, startsWith } from "lodash";
-import { createContext, useContext, useMemo } from "react";
+import { createContext, useContext, useMemo, Provider } from "react";
 import { Observable } from "rxjs";
 
 export interface IPager {
@@ -75,7 +75,13 @@ export interface ISearchContext<TFilters extends Dictionary<any>, T> {
   setData: (data: T[], total?: number, append?: boolean) => void;
 }
 
-export const SearchContext = createContext<{ search?: ISearchContext<any, any> }>({});
+export type TSearchContext = {
+  search?: ISearchContext<any, any>;
+};
+
+const SearchContext = createContext<TSearchContext>({});
+
+export const SearchContextProvider: Provider<TSearchContext> = SearchContext.Provider;
 
 export function useSearch<TFilters extends Dictionary<any>, T>() {
   return useContext(SearchContext).search! as ISearchContext<TFilters, T>;

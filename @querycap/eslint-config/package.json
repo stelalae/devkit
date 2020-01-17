@@ -1,13 +1,7 @@
 {
   "name": "@querycap/eslint-config",
   "version": "0.0.15",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib/"
-  ],
+  "main": "./eslint.config.js",
   "license": "MIT",
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",
