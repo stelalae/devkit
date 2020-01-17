@@ -11,7 +11,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@querycap/access": "*",
-    "@reactorx/router": "0.18.x",
+    "@reactorx/router": "0.x",
     "lodash": "4.x",
     "react": "16.x",
     "rxjs": "6.x"

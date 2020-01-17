@@ -42,7 +42,7 @@ export const fromOAuthToken = (token: IOAuthToken): IToken => ({
   ...token,
   accessToken: token.access_token,
   refreshToken: token.refresh_token,
-  expireAt: formatRFC3339(addSeconds(new Date(), token.expires_in - 10)),
+  expireAt: formatRFC3339(addSeconds(new Date(), Number(token.expires_in || 0) - 10)),
   uid: token.audience || token.uid,
 });
 
