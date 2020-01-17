@@ -1,6 +1,6 @@
 {
   "name": "@querycap/search",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -18,7 +18,7 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/request": "0.0.1"
+    "@querycap/request": "0.0.2"
   },
   "publishConfig": {
     "access": "public"
