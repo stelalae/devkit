@@ -1,6 +1,6 @@
 {
   "name": "@querycap/webpack-preset",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -11,8 +11,8 @@
   "license": "MIT",
   "peerDependencies": {
     "@types/webpack": "4.x",
-    "webpack": "4.x",
-    "lodash": "4.x"
+    "lodash": "4.x",
+    "webpack": "4.x"
   },
   "devDependencies": {
     "@types/webpack": "4.x",
