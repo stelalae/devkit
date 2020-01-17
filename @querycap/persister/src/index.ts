@@ -76,7 +76,7 @@ export class Persister {
           const nextDataToStore: { [key: string]: any } = {};
 
           for (const key of persists) {
-            if (!!prevState[key] && typeof nextState[key] === "undefined") {
+            if (!!prevState[key] && isUndefined(nextState[key])) {
               keysToDelete.push(key);
 
               if (key.includes("access")) {
@@ -95,6 +95,7 @@ export class Persister {
 
           if (clearAll) {
             this.clear();
+            console.log("all clear");
           } else {
             nextDataToStore["$persist"] = persists;
 
