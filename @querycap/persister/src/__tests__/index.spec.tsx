@@ -13,6 +13,7 @@ describe("Persister flow", () => {
   let store$ = Store.create({
     $ping: 0,
     pong: 0,
+    $access: "111",
   });
 
   beforeEach(async () => {
@@ -26,6 +27,7 @@ describe("Persister flow", () => {
     store$ = Store.create({
       $ping: 0,
       pong: 0,
+      $access: "111",
     });
 
     function App() {
@@ -42,6 +44,7 @@ describe("Persister flow", () => {
     expect((store$.getState() as any) || {}).toEqual({
       $ping: 0,
       pong: 0,
+      $access: "111",
     });
 
     await timeout(200);
@@ -56,6 +59,7 @@ describe("Persister flow", () => {
     const data = await persister.hydrate();
 
     expect(data).toEqual({
+      $access: "111",
       $ping: 2,
     });
   });
@@ -63,6 +67,19 @@ describe("Persister flow", () => {
   it("should deleted stored data", async () => {
     store$.next({ ...store$.getState(), $ping: undefined, pong: undefined } as any);
     await timeout(200);
+
+    const data = await persister.hydrate();
+    expect(data).toEqual({
+      $access: "111",
+    });
+  });
+
+  it("$access should clear all", async () => {
+    store$.next({ ...store$.getState(), $ping: 1, pong: 1 } as any);
+    await timeout(200);
+
+    store$.next({ ...store$.getState(), $ping: 1, pong: 1, $access: undefined } as any);
+    await timeout(1000);
 
     const data = await persister.hydrate();
     expect(data).toEqual({});
@@ -76,6 +93,7 @@ describe("Persister flow", () => {
 
     expect(data).toEqual({
       $ping: 1,
+      $access: "111",
     });
   });
 
@@ -91,7 +109,9 @@ describe("Persister flow", () => {
     await timeout(200);
 
     const data = await persister.hydrate();
-    expect(data).toEqual({});
+    expect(data).toEqual({
+      $access: "111",
+    });
   });
 });
 

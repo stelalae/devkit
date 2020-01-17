@@ -27,6 +27,7 @@ export class Persister {
   }
 
   clear() {
+    console.log("all clear");
     return this.storage.clear();
   }
 
@@ -95,7 +96,6 @@ export class Persister {
 
           if (clearAll) {
             this.clear();
-            console.log("all clear");
           } else {
             nextDataToStore["$persist"] = persists;
 
