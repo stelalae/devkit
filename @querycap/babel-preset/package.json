@@ -1,6 +1,6 @@
 {
   "name": "@querycap/babel-preset",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "main": "babel.config.js",
   "license": "MIT",
   "dependencies": {
