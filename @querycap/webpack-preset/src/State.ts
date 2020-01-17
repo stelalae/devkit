@@ -253,7 +253,7 @@ export function toCommitRefName(state: TState) {
   return (
     `feat/${state.appName}` +
     `${state.appFeature ? `--${state.appFeature}` : ""}` +
-    `${state.targetEnv && state.targetEnv !== "default" && state.targetEnv !== "demo" ? `.${state.targetEnv}` : ""}`
+    `${state.targetEnv && state.targetEnv !== "default" && state.targetEnv !== "staging" ? `.${state.targetEnv}` : ""}`
   );
 }
 
