@@ -6,7 +6,6 @@
     "--no-lockfile"
   ],
   "ignoreChanges": [
-    "*.js",
     "**/__fixtures__/**",
     "**/__tests__/**",
     "**/*.md"
@@ -14,8 +13,7 @@
   "command": {
     "version": {
       "exact": true,
-      "allowBranch": "master",
-      "message": "chore(release): %s"
+      "allowBranch": "master"
     }
   },
   "version": "independent"
