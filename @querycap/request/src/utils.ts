@@ -26,7 +26,7 @@ export const baseURLsFromConfig = (config: Dictionary<string>): Dictionary<strin
     if (startsWith(k, "SRV_")) {
       const basePath = k
         .replace("SRV_", "")
-        .replace("_", "-")
+        .replace(/_/g, "-")
         .toLowerCase();
       baseURLs[basePath] = v;
     }
