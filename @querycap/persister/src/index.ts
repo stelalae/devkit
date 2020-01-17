@@ -1,7 +1,7 @@
 import { Store } from "@reactorx/core";
 import { isBefore, parseISO } from "date-fns";
 import { createInstance, LOCALSTORAGE } from "localforage";
-import { isNull, isUndefined, keys, map, pickBy } from "lodash";
+import { filter, isNull, isUndefined, keys, map, uniq } from "lodash";
 import { fromEvent, merge } from "rxjs";
 import { tap } from "rxjs/operators";
 
@@ -69,14 +69,15 @@ export class Persister {
     const subscription = merge(
       store$.pipe(
         tap((nextState = {}) => {
-          const persists = keys(pickBy(nextState, (_, k) => isPersist(k)[0]));
-
           const keysToDelete: string[] = [];
+          const persists: string[] = [];
           let clearAll = false;
 
           const nextDataToStore: { [key: string]: any } = {};
 
-          for (const key of persists) {
+          const allPersists = uniq(filter([...keys(prevState), ...keys(nextState)], (key) => isPersist(key)[0]));
+
+          for (const key of allPersists) {
             if (!!prevState[key] && isUndefined(nextState[key])) {
               keysToDelete.push(key);
 
@@ -87,12 +88,15 @@ export class Persister {
               continue;
             }
 
+            persists.push(key);
+
             if (nextState[key] !== prevState[key]) {
               nextDataToStore[key] = nextState[key];
             }
           }
 
           prevState = nextState;
+          console.log(persists);
 
           if (clearAll) {
             this.clear();
