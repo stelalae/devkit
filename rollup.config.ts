@@ -111,7 +111,7 @@ if (pkg.ts) {
     files.flat().forEach((file) => {
       console.log(chalk.green("bundled", mod, file));
     });
-  })().catch((e) => console.log(e));
+  })();
 }
 
 function getPkgPaths(from: string, nodeModules: string) {

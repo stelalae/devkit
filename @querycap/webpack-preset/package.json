@@ -11,11 +11,11 @@
   "license": "MIT",
   "peerDependencies": {
     "@types/webpack": "4.x",
-    "webpack": "4.x"
+    "webpack": "4.x",
+    "lodash": "4.x"
   },
   "devDependencies": {
     "@types/webpack": "4.x",
-    "lodash": "4.x",
     "webpack": "4.x"
   },
   "dependencies": {
@@ -30,6 +30,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "d7001a484cf7781111b86952e101e3f8fd014167"
+  }
 }
