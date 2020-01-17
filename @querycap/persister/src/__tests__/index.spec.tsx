@@ -1,23 +1,29 @@
 import { Store, StoreProvider } from "@reactorx/core";
 import { render } from "@testing-library/react";
+import { addMinutes, formatRFC3339 } from "date-fns";
 import localforage from "localforage";
 // @ts-ignore
 import memoryStorageDriver from "localforage-memoryStorageDriver";
 import React, { useEffect } from "react";
 import { createPersister } from "..";
 
-describe("Persister", () => {
-  beforeAll(async () => {
-    await localforage.defineDriver(memoryStorageDriver);
+describe("Persister flow", () => {
+  let persister: ReturnType<typeof createPersister>;
+
+  let store$ = Store.create({
+    $ping: 0,
+    pong: 0,
   });
 
-  it("flow", async () => {
-    const persister = createPersister({
+  beforeEach(async () => {
+    await localforage.defineDriver(memoryStorageDriver);
+
+    persister = createPersister({
       name: "test",
       driver: memoryStorageDriver._driver,
     });
 
-    const store$ = Store.create({
+    store$ = Store.create({
       $ping: 0,
       pong: 0,
     });
@@ -38,32 +44,54 @@ describe("Persister", () => {
       pong: 0,
     });
 
+    await timeout(200);
+  });
+
+  it("should store data", async () => {
     store$.next({ ...store$.getState(), $ping: 1, pong: 1 });
     store$.next({ ...store$.getState(), $ping: 2, pong: 2 });
 
-    await timeout(1000);
+    await timeout(200);
 
-    await persister.hydrate((data) => {
-      expect(data).toEqual({
-        $ping: 2,
-      });
+    const data = await persister.hydrate();
+
+    expect(data).toEqual({
+      $ping: 2,
     });
+  });
 
+  it("should deleted stored data", async () => {
     store$.next({ ...store$.getState(), $ping: undefined, pong: undefined } as any);
     await timeout(200);
 
-    await persister.hydrate((data) => {
-      expect(data).toEqual({});
-    });
+    const data = await persister.hydrate();
+    expect(data).toEqual({});
+  });
 
+  it("load should correctly", async () => {
     store$.next({ ...store$.getState(), $ping: 1, pong: 1 } as any);
     await timeout(200);
 
-    await persister.hydrate((data) => {
-      expect(data).toEqual({
-        $ping: 1,
-      });
+    const data = await persister.hydrate();
+
+    expect(data).toEqual({
+      $ping: 1,
     });
+  });
+
+  it("load should ignore expired data", async () => {
+    store$.next({
+      ...store$.getState(),
+      $ping: {
+        expireAt: formatRFC3339(addMinutes(new Date(), -5)),
+      },
+      pong: undefined,
+    } as any);
+
+    await timeout(200);
+
+    const data = await persister.hydrate();
+    expect(data).toEqual({});
   });
 });
 

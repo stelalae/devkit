@@ -1,6 +1,7 @@
 import { RequestActor } from "@querycap/request";
 import { Actor, useConn, useObservable, useStore } from "@reactorx/core";
 import { Status, StatusUnauthorized } from "@reactorx/request";
+import { addSeconds, formatRFC3339, isBefore, parseISO } from "date-fns";
 import { useMemo } from "react";
 import { merge as observableMerge, Observable } from "rxjs";
 import { filter as rxFilter, map as rxMap } from "rxjs/operators";
@@ -14,19 +15,19 @@ export interface IToken {
   [k: string]: any;
 }
 
-const groupKey = "$$access";
+export const accessKey = "$$access";
 
 export const hasLogon = (access: IToken = {} as IToken) => {
-  return !!access.accessToken && Date.now() < Date.parse(access.expireAt);
+  return !!access.accessToken && !!access.expireAt && isBefore(new Date(), parseISO(access.expireAt));
 };
 
-const AccessActor = Actor.of(groupKey);
+const AccessActor = Actor.of(accessKey);
 
-const updateAccess = AccessActor.named<IToken>("update").effectOn(groupKey, (_, { arg }) => ({
+const updateAccess = AccessActor.named<IToken>("update").effectOn(accessKey, (_, { arg }) => ({
   ...arg,
 }));
 
-const deleteAccess = AccessActor.named<void>("delete").effectOn(groupKey, () => undefined);
+const deleteAccess = AccessActor.named<void>("delete").effectOn(accessKey, () => undefined);
 
 export interface IOAuthToken {
   access_token: string;
@@ -41,7 +42,7 @@ export const fromOAuthToken = (token: IOAuthToken): IToken => ({
   ...token,
   accessToken: token.access_token,
   refreshToken: token.refresh_token,
-  expireAt: new Date(Date.now() + (token.expires_in - 10) * 1000).toISOString(),
+  expireAt: formatRFC3339(addSeconds(new Date(), token.expires_in - 10)),
   uid: token.audience || token.uid,
 });
 
@@ -49,7 +50,7 @@ export const useAccessMgr = () => {
   const store$ = useStore();
 
   const access$ = useConn<any, IToken>(store$, (state = {}) => {
-    return state[groupKey];
+    return state[accessKey];
   });
 
   const { set, del } = useMemo(() => {

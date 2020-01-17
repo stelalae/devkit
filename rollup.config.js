@@ -15,7 +15,7 @@ const getPkgPaths = (from, nodeModules) => {
       absolute: true,
       cwd
     })
-    .map((p) => path.relative(nodeModules, p).replace(/.js$/, ""));
+    .map((p) => path.relative(nodeModules, p).replace(/.js$/, "").replace(/\/index$/, ""));
 };
 
 const pkg = require(path.join(process.cwd(), "package.json"));

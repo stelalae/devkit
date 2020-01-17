@@ -1,10 +1,9 @@
 import { Store } from "@reactorx/core";
+import { isBefore, parseISO } from "date-fns";
 import { createInstance, LOCALSTORAGE } from "localforage";
 import { isNull, isUndefined, keys, map, pickBy } from "lodash";
 import { fromEvent, merge } from "rxjs";
 import { tap } from "rxjs/operators";
-
-const isExpired = (expiredAt: string) => Date.now() < Date.parse(expiredAt);
 
 // $access need persist
 // $$access need persist and crossTabs
@@ -188,6 +187,8 @@ export class Persister {
   }
 }
 
+const isExpired = (expireAt = "") => isBefore(parseISO(expireAt), new Date());
+
 function isValidValue(value: any) {
   if (isUndefined(value)) {
     return false;
@@ -195,8 +196,8 @@ function isValidValue(value: any) {
   if (isNull(value)) {
     return false;
   }
-  if (value.expiresAt) {
-    return !isExpired(value.expiresAt);
+  if (value.expireAt) {
+    return !isExpired(value.expireAt);
   }
   return true;
 }

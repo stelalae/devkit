@@ -2,11 +2,11 @@ import { AxiosRequestConfig } from "@querycap/request";
 import { Store } from "@reactorx/core";
 import { AxiosInterceptorManager } from "axios";
 import { get, has, set, size, some } from "lodash";
-import { hasLogon } from "./AccessToken";
+import { accessKey, hasLogon } from "./AccessToken";
 import { TokenSet } from "./TokenSet";
 
 export const getAccessTokenFromState = (state: any) => {
-  const access = get(state, "access", {});
+  const access = get(state, accessKey, {});
 
   if (hasLogon(access)) {
     return access.accessToken;
