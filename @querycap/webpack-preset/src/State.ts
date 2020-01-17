@@ -2,7 +2,7 @@ import spawn from "cross-spawn";
 import { createFileSync, writeFileSync } from "fs-extra";
 import globby from "globby";
 import { safeDump } from "js-yaml";
-import { keys, last, mapKeys, mapValues } from "lodash";
+import { isUndefined, keys, last, mapKeys, mapValues, omitBy } from "lodash";
 import path, { join } from "path";
 import { stringify } from "querystring";
 
@@ -73,6 +73,10 @@ export const createState = ({
 
   return state;
 };
+
+function omitEmpty<T extends object = any>(o: T) {
+  return omitBy(o, (v) => isUndefined(v));
+}
 
 function resolveConfigFile(state: TState) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -208,19 +212,21 @@ server {
 
   generateFile(
     join(state.cwd, "./config/default.yml"),
-    safeDump({
-      APP: state.appName,
-      ENV: state.targetEnv,
-      FULL_PATH: toFullPath(state),
-      APP_CONFIG: stringify(state.config || {}, ",", "=", {
-        encodeURIComponent: (v) => v,
-      }),
+    safeDump(
+      omitEmpty({
+        APP: state.appName,
+        ENV: state.targetEnv,
+        FULL_PATH: toFullPath(state),
+        APP_CONFIG: stringify(state.config || {}, ",", "=", {
+          encodeURIComponent: (v) => v,
+        }),
 
-      // for overwrite
-      PROJECT_DESCRIPTION: state.manifest?.name,
-      PROJECT_FEATURE: state.appFeature || "",
-      ...(state.group ? { PROJECT_GROUP: state.group } : {}),
-    }),
+        // for overwrite
+        PROJECT_DESCRIPTION: state.manifest?.name,
+        PROJECT_FEATURE: state.appFeature || "",
+        ...(state.group ? { PROJECT_GROUP: state.group } : {}),
+      }),
+    ),
   );
 }
 
