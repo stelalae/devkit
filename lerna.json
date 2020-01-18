@@ -2,6 +2,7 @@
   "packages": [
     "@querycap/*"
   ],
+  "npmClient": "yarn",
   "npmClientArgs": [
     "--no-lockfile"
   ],

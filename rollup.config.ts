@@ -5,7 +5,7 @@ import { OutputOptions, rollup, RollupOptions } from "rollup";
 // @ts-ignore
 import rollupBabel from "rollup-plugin-babel";
 import dts from "rollup-plugin-dts";
-import nodeResolve from "rollup-plugin-node-resolve";
+import nodeResolve from "@rollup/plugin-node-resolve";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require(path.join(process.cwd(), "package.json"));
