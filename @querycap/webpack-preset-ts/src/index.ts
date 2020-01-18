@@ -8,6 +8,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (c
   const babelLoader = {
     loader: require.resolve("babel-loader"),
     options: {
+      cwd: state.cwd,
       babelrc: true,
       cacheDirectory: !isProd,
       overrides: [
