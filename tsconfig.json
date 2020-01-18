@@ -5,9 +5,9 @@
     "outDir": ".tmp",
     "paths": {
       "*": [
-        "*",
+        "__types__/*",
         "*/src",
-        "__types__/*"
+        "*"
       ]
     },
     "noImplicitAny": true,
