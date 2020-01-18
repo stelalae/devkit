@@ -1,6 +1,6 @@
 {
   "name": "@querycap/request",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -10,9 +10,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@querycap/notify": "0.x",
     "@reactorx/core": "0.19.x",
     "@reactorx/request": "0.19.x",
-    "@querycap/notify": "0.x",
     "axios": "0.19.x",
     "lodash": "4.x",
     "react": "16.x",
