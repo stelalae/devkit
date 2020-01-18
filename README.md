@@ -1,5 +1,10 @@
 # WebApp 开发套件
 
+
+[![Build Status](https://img.shields.io/travis/querycap/devkit.svg?style=flat-square)](https://travis-ci.org/querycap/devkit)
+[![codecov](https://codecov.io/gh/querycap/devkit/branch/master/graph/badge.svg)](https://codecov.io/gh/querycap/devkit)
+
+
 基于 [Feature PR Flow](https://github.com/querycap/feature-pr-flow)，
 TypeScript 和 Webpack 开发 Web App
 

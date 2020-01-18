@@ -4,12 +4,12 @@
     "baseUrl": ".",
     "outDir": ".tmp",
     "paths": {
-      "*": [
-        "__types__/*",
-        "*"
-      ],
       "@querycap/*": [
-        "@querycap/*/src",
+        "@querycap/*/src"
+      ],
+      "*": [
+        "node_modules/*",
+        "__types__/*",
         "*"
       ]
     },
@@ -41,6 +41,7 @@
   },
   "exclude": [
     ".tmp/*",
+    "lib/*",
     "node_modules/*"
   ]
 }
