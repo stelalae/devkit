@@ -33,7 +33,7 @@ export const generateClient = async (
   uri: string,
   {
     cwd = process.cwd(),
-    clientCreator = "src-core/request.createRequestActor",
+    clientCreator = "@querycap/request.createRequestActor",
     filterParameter = defaultFilterParameter,
     ignorePaths,
     force,
