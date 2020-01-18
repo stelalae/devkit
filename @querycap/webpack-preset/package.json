@@ -14,10 +14,6 @@
     "lodash": "4.x",
     "webpack": "4.x"
   },
-  "devDependencies": {
-    "@types/webpack": "4.x",
-    "webpack": "4.x"
-  },
   "dependencies": {
     "@types/cross-spawn": "6.0.1",
     "@types/fs-extra": "8.0.1",

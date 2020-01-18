@@ -13,10 +13,6 @@
     "@types/webpack": "4.x",
     "webpack": "4.x"
   },
-  "devDependencies": {
-    "@types/webpack": "4.x",
-    "webpack": "4.x"
-  },
   "dependencies": {
     "@querycap/webpack-preset": "0.1.0",
     "css-loader": "3.4.1",

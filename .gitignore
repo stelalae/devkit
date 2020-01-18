@@ -8,3 +8,4 @@ coverage/
 !.eslintrc.js
 
 *.log
+package-lock.json

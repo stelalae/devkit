@@ -1,14 +1,15 @@
 {
   "name": "devkit",
-  "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "@querycap/*"
+  ],
   "scripts": {
-    "start": "yarn run prepare",
-    "bootstrap": "lerna bootstrap",
+    "clean": "rm -rf  @querycap/*/lib",
     "fmt": "prettier --write @querycap/{,**/}{,**/}*.{ts,tsx,json,md}",
     "test": "jest --coverage",
-    "build": "tsc --incremental --diagnostics && lerna exec -- ts-node ../../rollup.config.ts",
-    "prepare": "yarn run bootstrap && yarn test && yarn run build"
+    "build": "tsc && lerna exec -- ts-node ../../rollup.config.ts",
+    "prepare": "yarn test && yarn run build"
   },
   "commitlint": {
     "extends": [
@@ -30,6 +31,7 @@
     "@types/node": "13.1.x",
     "@types/react": "16.9.x",
     "@types/react-dom": "16.9.x",
+    "@types/webpack": "4.41.2",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "acorn": "7.1.x",
@@ -37,6 +39,7 @@
     "axios": "0.19.x",
     "babel-jest": "24.9.x",
     "chalk": "3.0.0",
+    "core-js": "3.6.4",
     "date-fns": "2.9.0",
     "eslint": "6.8.x",
     "eslint-plugin-react": "7.x",
@@ -58,7 +61,8 @@
     "rxjs": "6.5.4",
     "ts-node": "8.6.2",
     "typescript": "3.7.5",
-    "uuid": "3.4.0"
+    "uuid": "3.4.0",
+    "webpack": "4.41.5"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -93,7 +97,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && lerna bootstrap",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

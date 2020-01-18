@@ -14,10 +14,6 @@
     "@types/webpack": "4.x",
     "webpack": "4.x"
   },
-  "devDependencies": {
-    "@types/webpack": "4.x",
-    "webpack": "4.x"
-  },
   "dependencies": {
     "@querycap/webpack-preset": "0.1.0",
     "html-webpack-plugin": "3.2.0",
@@ -26,6 +22,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "d7001a484cf7781111b86952e101e3f8fd014167"
+  }
 }
