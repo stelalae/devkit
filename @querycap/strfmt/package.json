@@ -1,0 +1,19 @@
+{
+  "name": "@querycap/strfmt",
+  "version": "0.0.0",
+  "ts": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "lodash": "4.x",
+    "react": "16.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
