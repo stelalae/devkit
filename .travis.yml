@@ -3,8 +3,11 @@ language: node_js
 node_js:
   - "13"
 
+install: skip
+
 script:
-  - echo "."
+  - npm ci
+  - npm run bootstrap
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
