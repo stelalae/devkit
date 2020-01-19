@@ -81,9 +81,9 @@ export const MapboxGLCSS = () => (
         background: "#fff",
       },
       ".mapboxgl-ctrl-group:not(:empty)": {
-        MozBoxShadow: "0 0 2px rgba(0, 0, 0, .1)",
-        WebkitBoxShadow: "0 0 2px rgba(0, 0, 0, .1)",
-        boxShadow: "0 0 0 2px rgba(0, 0, 0, .1)",
+        MozBoxShadow: "0 0 2px rgba(0, 0, 0, 0.1)",
+        WebkitBoxShadow: "0 0 2px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
       },
       ".mapboxgl-ctrl-group button": {
         width: "29px",
@@ -120,7 +120,7 @@ export const MapboxGLCSS = () => (
         opacity: 0.25,
       },
       ".mapboxgl-ctrl button:not(:disabled):hover": {
-        backgroundColor: "rgba(0, 0, 0, .05)",
+        backgroundColor: "rgba(0, 0, 0, 0.05)",
       },
       ".mapboxgl-ctrl-group button:focus:focus-visible": {
         boxShadow: "0 0 2px 2px #0096ff",
@@ -204,11 +204,11 @@ export const MapboxGLCSS = () => (
       },
       ".mapboxgl-ctrl.mapboxgl-ctrl-attrib": {
         padding: "0 5px",
-        backgroundColor: "hsla(0, 0%, 100%, .5)",
+        backgroundColor: "hsla(0, 0%, 100%, 0.5)",
         margin: 0,
       },
       ".mapboxgl-ctrl-attrib a": {
-        color: "rgba(0, 0, 0, .75)",
+        color: "rgba(0, 0, 0, 0.75)",
         textDecoration: "none",
       },
       ".mapboxgl-ctrl-attrib a:hover": {
@@ -223,7 +223,7 @@ export const MapboxGLCSS = () => (
         display: "none",
       },
       ".mapboxgl-ctrl-scale": {
-        backgroundColor: "hsla(0, 0%, 100%, .75)",
+        backgroundColor: "hsla(0, 0%, 100%, 0.75)",
         fontSize: "10px",
         border: "2px solid #333",
         borderTop: "#333",
@@ -323,13 +323,13 @@ export const MapboxGLCSS = () => (
         backgroundColor: "transparent",
       },
       ".mapboxgl-popup-close-button:hover": {
-        backgroundColor: "rgba(0, 0, 0, .05)",
+        backgroundColor: "rgba(0, 0, 0, 0.05)",
       },
       ".mapboxgl-popup-content": {
         position: "relative",
         background: "#fff",
         borderRadius: "3px",
-        boxShadow: "0 1px 2px rgba(0, 0, 0, .1)",
+        boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
         padding: "10px 10px 15px",
         pointerEvents: "auto",
       },
@@ -388,7 +388,7 @@ export const MapboxGLCSS = () => (
         top: "-2px",
         width: "19px",
         boxSizing: "border-box",
-        boxShadow: "0 0 3px rgba(0, 0, 0, .35)",
+        boxShadow: "0 0 3px rgba(0, 0, 0, 0.35)",
       },
       ".mapboxgl-user-location-dot-stale": {
         backgroundColor: "#aaa",

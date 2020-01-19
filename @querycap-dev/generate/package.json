@@ -12,6 +12,8 @@
     "prettier": "*"
   },
   "dependencies": {
+    "prettier": "*",
+    "chalk": "3.0.0",
     "globby": "11.0.0"
   },
   "license": "MIT",
