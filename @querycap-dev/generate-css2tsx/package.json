@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-css2tsx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
