@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -12,9 +12,9 @@
     "prettier": "*"
   },
   "dependencies": {
-    "prettier": "*",
     "chalk": "3.0.0",
-    "globby": "11.0.0"
+    "globby": "11.0.0",
+    "prettier": "*"
   },
   "license": "MIT",
   "publishConfig": {
