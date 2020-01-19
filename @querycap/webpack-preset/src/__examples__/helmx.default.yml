@@ -1,5 +1,0 @@
-service:
-  ports:
-    - '80:80'
-  lifecycle:
-    preStop: nginx -s quit

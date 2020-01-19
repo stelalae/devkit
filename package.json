@@ -2,6 +2,7 @@
   "name": "devkit",
   "private": true,
   "workspaces": [
+    "@querycap-dev/*",
     "@querycap/*"
   ],
   "scripts": {
@@ -25,6 +26,7 @@
     "@reactorx/core": "0.19.x",
     "@reactorx/request": "0.19.x",
     "@reactorx/router": "0.19.x",
+    "@rollup/plugin-node-resolve": "7.0.0",
     "@testing-library/react": "9.4.x",
     "@types/jest": "24.9.x",
     "@types/lodash": "4.14.x",
@@ -53,6 +55,7 @@
     "localforage-memoryStorageDriver": "0.9.2",
     "lodash": "4.17.15",
     "prettier": "1.19.1",
+    "pretty-quick": "2.0.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "rollup": "1.29.0",
@@ -66,12 +69,12 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier --write",
+      "pretty-quick --staged",
       "eslint --fix",
       "git add"
     ],
     "*.{json}": [
-      "prettier --write",
+      "pretty-quick --staged",
       "git add"
     ]
   },
@@ -91,7 +94,8 @@
       "<rootDir>"
     ],
     "moduleNameMapper": {
-      "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/src"
+      "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/src",
+      "^@querycap-dev/([^/]+)$": "<rootDir>/@querycap-dev/$1/src"
     },
     "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
   },
@@ -100,8 +104,5 @@
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "dependencies": {
-    "@rollup/plugin-node-resolve": "7.0.0"
   }
 }

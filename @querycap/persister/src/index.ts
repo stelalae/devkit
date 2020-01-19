@@ -96,7 +96,6 @@ export class Persister {
           }
 
           prevState = nextState;
-          console.log(persists);
 
           if (clearAll) {
             this.clear();

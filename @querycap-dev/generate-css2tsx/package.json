@@ -1,6 +1,6 @@
 {
-  "name": "@querycap/config",
-  "version": "0.0.15",
+  "name": "@querycap-dev/generate-css2tsx",
+  "version": "0.0.0",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -8,6 +8,10 @@
   "files": [
     "lib/"
   ],
+  "dependencies": {
+    "lodash": "*",
+    "postcss": "7.0.26"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
