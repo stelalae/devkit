@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-svg2tsx",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -9,8 +9,8 @@
     "lib/"
   ],
   "dependencies": {
-    "lodash": "*",
     "cheerio": "1.0.0-rc.3",
+    "lodash": "*",
     "simplify-svg": "3.2.x"
   },
   "license": "MIT",

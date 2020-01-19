@@ -1,6 +1,6 @@
 {
   "name": "@querycap/config",
-  "version": "0.0.15",
+  "version": "0.1.0",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
