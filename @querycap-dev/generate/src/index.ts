@@ -23,6 +23,7 @@ export const generate = (
 
   try {
     content = prettier.format(content, {
+      ...prettier.resolveConfig.sync(finalFilepath),
       filepath: finalFilepath,
     });
   } catch (e) {
