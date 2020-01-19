@@ -94,7 +94,8 @@ export const css2tsx = (name: string, filename: string, opts: { exclude?: string
     });
 
   return `
-  import React from "react";
+import React from "react";
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import { Global } from "@emotion/core";
 
