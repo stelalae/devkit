@@ -66,7 +66,7 @@ if (pkg.ts) {
                   },
                 },
               ],
-              path.join(__dirname, "./@querycap/babel-preset"),
+              path.join(__dirname, "./@querycap-dev/babel-preset"),
             ],
           }),
         ],
