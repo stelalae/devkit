@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -15,7 +15,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap-dev/generate": "0.1.1",
+    "@querycap-dev/generate": "0.1.2",
     "@types/cross-spawn": "6.0.1",
     "@types/fs-extra": "8.0.1",
     "@types/js-yaml": "3.12.1",

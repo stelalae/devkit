@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-client",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "ts": "src/index.ts",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -18,7 +18,7 @@
     "@morlay/ts-gen-client-from-openapi": "1.2.0",
     "@morlay/ts-gen-core": "1.2.0",
     "@morlay/ts-gen-definitions-from-json-schema": "1.2.0",
-    "@querycap-dev/generate": "0.1.1",
+    "@querycap-dev/generate": "0.1.2",
     "@types/lodash": "4.x",
     "axios": "0.19.x",
     "lodash": "4.x"
