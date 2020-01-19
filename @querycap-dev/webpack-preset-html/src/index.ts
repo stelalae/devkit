@@ -66,6 +66,7 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
       new OfflinePlugin({
         safeToUseOptionalCaches: true,
         appShell: "/", // as html5 history fallback, see more https://github.com/NekR/offline-plugin/blob/master/docs/examples/SPA.md
+        responseStrategy: "network-first",
         caches: {
           main: [
             "/__built__/../", // ugly for HtmlWebpackPlugin index.html
