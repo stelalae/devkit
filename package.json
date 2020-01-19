@@ -5,6 +5,27 @@
     "@querycap-dev/*",
     "@querycap/*"
   ],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "tsx",
+      "ts",
+      "json",
+      "jsx",
+      "js"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "moduleNameMapper": {
+      "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/src",
+      "^@querycap-dev/([^/]+)$": "<rootDir>/@querycap-dev/$1/src"
+    },
+    "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
+  },
   "scripts": {
     "clean": "rm -rf  @querycap/*/lib",
     "fmt": "prettier --write @querycap/{,**/}{,**/}*.{ts,tsx,json,md}",
@@ -67,43 +88,17 @@
     "uuid": "3.4.0",
     "webpack": "4.41.5"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "pretty-quick --staged",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json}": [
-      "pretty-quick --staged",
-      "git add"
-    ]
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    },
-    "moduleFileExtensions": [
-      "tsx",
-      "ts",
-      "json",
-      "jsx",
-      "js"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ],
-    "moduleNameMapper": {
-      "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/src",
-      "^@querycap-dev/([^/]+)$": "<rootDir>/@querycap-dev/$1/src"
-    },
-    "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
-  },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test",
-      "pre-commit": "lint-staged",
+      "post-merge": "yarn",
+      "pre-commit": "lint-staged && pretty-quick --staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --quiet",
+      "git add"
+    ]
   }
 }
