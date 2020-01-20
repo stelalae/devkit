@@ -100,11 +100,18 @@ import React from "react";
 import { Global } from "@emotion/core";
 
 export const ${name} = () => (
-  <Global 
-    styles={{ 
-      ${map(selectors, (rule, k) => `${JSON.stringify(k)}: ${rule}`).join(",\n")}
-    }} 
-  />
+  <>
+${map(
+  selectors,
+  (rule, k) => `
+<Global 
+  styles={{ 
+    ${JSON.stringify(k)}: ${rule}
+  }} 
+/>
+`,
+).join("\n")}
+  </>
 )
   `;
 };
