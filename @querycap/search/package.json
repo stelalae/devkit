@@ -1,6 +1,6 @@
 {
   "name": "@querycap/search",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "types": "dist/search.cjs.d.ts",
   "main": "dist/search.cjs.js",
   "module": "dist/search.esm.js",
@@ -9,16 +9,16 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "@reactorx/core": "0.x",
     "@reactorx/request": "0.x",
     "@reactorx/router": "0.x",
     "lodash": "4.x",
     "react": "16.x",
-    "rxjs": "6.x",
-    "@babel/runtime": "*"
+    "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/request": "0.0.3"
+    "@querycap/request": "0.1.0"
   },
   "publishConfig": {
     "access": "public"

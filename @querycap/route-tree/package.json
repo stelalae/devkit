@@ -1,6 +1,6 @@
 {
   "name": "@querycap/route-tree",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "types": "dist/route-tree.cjs.d.ts",
   "main": "dist/route-tree.cjs.js",
   "module": "dist/route-tree.esm.js",
@@ -9,12 +9,12 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "@querycap/access": "*",
     "@reactorx/router": "0.x",
     "lodash": "4.x",
     "react": "16.x",
-    "rxjs": "6.x",
-    "@babel/runtime": "*"
+    "rxjs": "6.x"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@querycap/strfmt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "types": "dist/strfmt.cjs.d.ts",
   "main": "dist/strfmt.cjs.js",
   "module": "dist/strfmt.esm.js",
@@ -9,9 +9,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "lodash": "4.x",
-    "react": "16.x",
-    "@babel/runtime": "*"
+    "react": "16.x"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@querycap/request",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "types": "dist/request.cjs.d.ts",
   "main": "dist/request.cjs.js",
   "module": "dist/request.esm.js",
@@ -9,6 +9,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "@querycap/notify": "0.x",
     "@reactorx/core": "0.19.x",
     "@reactorx/request": "0.19.x",
@@ -16,8 +17,7 @@
     "lodash": "4.x",
     "react": "16.x",
     "rxjs": "6.x",
-    "uuid": "3.x",
-    "@babel/runtime": "*"
+    "uuid": "3.x"
   },
   "publishConfig": {
     "access": "public"

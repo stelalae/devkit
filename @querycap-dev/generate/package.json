@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "types": "dist/generate.cjs.d.ts",
   "main": "dist/generate.cjs.js",
   "module": "dist/generate.esm.js",
@@ -8,8 +8,8 @@
     "dist/"
   ],
   "peerDependencies": {
-    "prettier": "*",
-    "@babel/runtime": "*"
+    "@babel/runtime": "*",
+    "prettier": "*"
   },
   "dependencies": {
     "chalk": "3.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@querycap/reactutils",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "types": "dist/reactutils.cjs.d.ts",
   "main": "dist/reactutils.cjs.js",
   "module": "dist/reactutils.esm.js",
@@ -9,9 +9,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "lodash": "4.x",
-    "react": "16.x",
-    "@babel/runtime": "*"
+    "react": "16.x"
   },
   "publishConfig": {
     "access": "public"

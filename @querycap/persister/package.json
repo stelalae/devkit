@@ -1,6 +1,6 @@
 {
   "name": "@querycap/persister",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "types": "dist/persister.cjs.d.ts",
   "main": "dist/persister.cjs.js",
   "module": "dist/persister.esm.js",
@@ -9,10 +9,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "date-fns": "2.x",
     "lodash": "4.x",
-    "rxjs": "6.x",
-    "@babel/runtime": "*"
+    "rxjs": "6.x"
   },
   "dependencies": {
     "localforage": "1.7.3"

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "types": "dist/webpack-preset.cjs.d.ts",
   "main": "dist/webpack-preset.cjs.js",
   "module": "dist/webpack-preset.esm.js",
@@ -9,12 +9,12 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime": "*",
     "lodash": "4.x",
-    "webpack": "4.x",
-    "@babel/runtime": "*"
+    "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap-dev/generate": "0.1.2",
+    "@querycap-dev/generate": "0.2.0",
     "@types/cross-spawn": "6.0.1",
     "@types/fs-extra": "8.0.1",
     "@types/js-yaml": "3.12.1",

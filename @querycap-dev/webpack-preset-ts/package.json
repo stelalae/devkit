@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset-ts",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "types": "dist/webpack-preset-ts.cjs.d.ts",
   "main": "dist/webpack-preset-ts.cjs.js",
   "module": "dist/webpack-preset-ts.esm.js",
@@ -9,11 +9,11 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "4.x",
-    "@babel/runtime": "*"
+    "@babel/runtime": "*",
+    "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap-dev/webpack-preset": "0.2.2",
+    "@querycap-dev/webpack-preset": "0.3.0",
     "@types/terser-webpack-plugin": "2.2.0",
     "babel-loader": "8.0.6",
     "terser-webpack-plugin": "2.3.1",
