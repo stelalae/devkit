@@ -5,6 +5,14 @@
     "@querycap-dev/*",
     "@querycap/*"
   ],
+  "preconstruct": {
+    "packages": [
+      "@querycap-dev/*",
+      "@querycap/*",
+      "!@querycap-dev/babel-preset",
+      "!@querycap-dev/eslint-config"
+    ]
+  },
   "jest": {
     "testEnvironment": "jsdom",
     "transform": {
@@ -27,11 +35,11 @@
     "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
   },
   "scripts": {
-    "clean": "rm -rf  @querycap/*/lib",
-    "fmt": "prettier --write @querycap/{,**/}{,**/}*.{ts,tsx,json,md}",
+    "clean": "rm -rf  @querycap*/*/node_modules",
+    "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
     "test": "jest --coverage",
-    "build": "tsc && lerna exec -- ts-node ../../rollup.config.ts",
-    "prepare": "yarn run build"
+    "build": "preconstruct build && lerna exec -- ts-node ../../rollup-dts.ts",
+    "prepare": "yarn test && yarn run build"
   },
   "commitlint": {
     "extends": [
@@ -44,6 +52,7 @@
     "@babel/runtime": "7.8.3",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
+    "@preconstruct/cli": "1.1.4",
     "@reactorx/core": "0.19.x",
     "@reactorx/request": "0.19.x",
     "@reactorx/router": "0.19.x",
@@ -80,7 +89,6 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "rollup": "1.29.0",
-    "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-dts": "1.2.0",
     "rxjs": "6.5.4",
     "ts-node": "8.6.2",

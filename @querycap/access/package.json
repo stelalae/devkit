@@ -1,12 +1,11 @@
 {
   "name": "@querycap/access",
   "version": "0.0.6",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/access.cjs.d.ts",
+  "main": "dist/access.cjs.js",
+  "module": "dist/access.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -16,7 +15,8 @@
     "date-fns": "2.x",
     "lodash": "4.x",
     "react": "16.x",
-    "rxjs": "6.x"
+    "rxjs": "6.x",
+    "@babel/runtime": "*"
   },
   "dependencies": {
     "@querycap/request": "0.0.3",

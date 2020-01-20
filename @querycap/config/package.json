@@ -1,13 +1,15 @@
 {
   "name": "@querycap/config",
   "version": "0.1.0",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/config.cjs.d.ts",
+  "main": "dist/config.cjs.js",
+  "module": "dist/config.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
+  "peerDependencies": {
+    "@babel/runtime": "*"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"

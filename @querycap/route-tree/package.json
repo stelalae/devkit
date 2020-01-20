@@ -1,12 +1,11 @@
 {
   "name": "@querycap/route-tree",
   "version": "0.0.3",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/route-tree.cjs.d.ts",
+  "main": "dist/route-tree.cjs.js",
+  "module": "dist/route-tree.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -14,7 +13,8 @@
     "@reactorx/router": "0.x",
     "lodash": "4.x",
     "react": "16.x",
-    "rxjs": "6.x"
+    "rxjs": "6.x",
+    "@babel/runtime": "*"
   },
   "publishConfig": {
     "access": "public"

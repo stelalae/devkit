@@ -1,18 +1,17 @@
 {
   "name": "@querycap-dev/webpack-preset-html",
   "version": "0.2.3",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/webpack-preset-html.cjs.d.ts",
+  "main": "dist/webpack-preset-html.cjs.js",
+  "module": "dist/webpack-preset-html.esm.js",
   "files": [
-    "lib/",
+    "dist/",
     "index-default.html"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@types/webpack": "4.x",
-    "webpack": "4.x"
+    "webpack": "4.x",
+    "@babel/runtime": "*"
   },
   "dependencies": {
     "@querycap-dev/webpack-preset": "0.2.2",

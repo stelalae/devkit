@@ -1,12 +1,11 @@
 {
   "name": "@querycap-dev/webpack-preset-assets",
   "version": "0.2.2",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/webpack-preset-assets.cjs.d.ts",
+  "main": "dist/webpack-preset-assets.cjs.js",
+  "module": "dist/webpack-preset-assets.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -26,6 +25,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "64b2cdfd0c8a029c0120c09c3d5f763c94a4f9dd"
+  }
 }

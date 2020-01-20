@@ -1,18 +1,18 @@
 {
   "name": "@querycap/notify",
   "version": "0.0.1",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/notify.cjs.d.ts",
+  "main": "dist/notify.cjs.js",
+  "module": "dist/notify.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@reactorx/core": "0.19.x",
+    "@reactorx/core": "0.x",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "16.x",
+    "@babel/runtime": "*"
   },
   "publishConfig": {
     "access": "public"

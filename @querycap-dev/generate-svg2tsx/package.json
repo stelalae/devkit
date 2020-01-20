@@ -1,12 +1,11 @@
 {
   "name": "@querycap-dev/generate-svg2tsx",
   "version": "0.1.2",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/generate-svg2tsx.cjs.d.ts",
+  "main": "dist/generate-svg2tsx.cjs.js",
+  "module": "dist/generate-svg2tsx.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "dependencies": {
     "cheerio": "1.0.0-rc.3",

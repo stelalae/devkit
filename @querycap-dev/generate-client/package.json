@@ -1,12 +1,11 @@
 {
   "name": "@querycap-dev/generate-client",
   "version": "0.2.2",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/generate-client.cjs.d.ts",
+  "main": "dist/generate-client.cjs.js",
+  "module": "dist/generate-client.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "babelPresetEnv": {
     "targets": {
@@ -14,6 +13,9 @@
     }
   },
   "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime": "*"
+  },
   "dependencies": {
     "@morlay/ts-gen-client-from-openapi": "1.2.0",
     "@morlay/ts-gen-core": "1.2.0",

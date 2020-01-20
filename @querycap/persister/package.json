@@ -1,18 +1,18 @@
 {
   "name": "@querycap/persister",
   "version": "0.1.0",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/persister.cjs.d.ts",
+  "main": "dist/persister.cjs.js",
+  "module": "dist/persister.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "date-fns": "2.x",
     "lodash": "4.x",
-    "rxjs": "6.x"
+    "rxjs": "6.x",
+    "@babel/runtime": "*"
   },
   "dependencies": {
     "localforage": "1.7.3"

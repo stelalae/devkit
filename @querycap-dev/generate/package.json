@@ -1,15 +1,15 @@
 {
   "name": "@querycap-dev/generate",
   "version": "0.1.2",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/generate.cjs.d.ts",
+  "main": "dist/generate.cjs.js",
+  "module": "dist/generate.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "peerDependencies": {
-    "prettier": "*"
+    "prettier": "*",
+    "@babel/runtime": "*"
   },
   "dependencies": {
     "chalk": "3.0.0",

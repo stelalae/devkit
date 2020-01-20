@@ -1,12 +1,11 @@
 {
   "name": "@querycap/request",
   "version": "0.0.3",
-  "ts": "src/index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
+  "types": "dist/request.cjs.d.ts",
+  "main": "dist/request.cjs.js",
+  "module": "dist/request.esm.js",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -17,7 +16,8 @@
     "lodash": "4.x",
     "react": "16.x",
     "rxjs": "6.x",
-    "uuid": "3.x"
+    "uuid": "3.x",
+    "@babel/runtime": "*"
   },
   "publishConfig": {
     "access": "public"
