@@ -1,6 +1,9 @@
 dist/
 public/
 coverage/
+node_modules/
+.idea/
+
 *.js
 .tmp/
 
