@@ -16,7 +16,7 @@
     "@querycap-dev/webpack-preset": "0.3.0",
     "@types/terser-webpack-plugin": "2.2.0",
     "babel-loader": "8.0.6",
-    "terser-webpack-plugin": "2.3.1",
+    "terser-webpack-plugin": "2.3.4",
     "worker-loader": "2.0.0"
   },
   "publishConfig": {

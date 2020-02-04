@@ -11,8 +11,8 @@
   "peerDependencies": {
     "@babel/runtime": "*",
     "@querycap/notify": "0.x",
-    "@reactorx/core": "0.19.x",
-    "@reactorx/request": "0.19.x",
+    "@reactorx/core": "0.20.x",
+    "@reactorx/request": "0.20.x",
     "axios": "0.19.x",
     "lodash": "4.x",
     "react": "16.x",
