@@ -38,9 +38,7 @@ export const withPresetsBy = (stateOpts: Partial<TState> = {}) => (...presets: T
     plugins: [
       new DefinePlugin({
         ".js'": "'",
-        "process.env": {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development"),
-        },
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development"),
       }),
     ],
   };
