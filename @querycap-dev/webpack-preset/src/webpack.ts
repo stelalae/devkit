@@ -38,6 +38,7 @@ export const withPresetsBy = (stateOpts: Partial<TState> = {}) => (...presets: T
     plugins: [
       new DefinePlugin({
         ".js'": "'",
+        // eslint-disable-next-line no-useless-escape
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development"),
       }),
     ],
